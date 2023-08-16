@@ -22,16 +22,13 @@
 
 module vedic_2bit(input [2:0]a,
                   input [2:0]b,
-                  output s0,
-                  output s1,
-                  output s2,
-                  output c2
+                  output [3:0]s
                   );
      
-     assign s0 = a[0] & b[0];
+     assign s[0] = a[0] & b[0];
      wire temp;
-     half_adder H1((a[1]&b[0]), (a[0]&b[1]), temp, s1);
-     half_adder H2(temp, (a[1]&b[1]), s2, c2);
+     half_adder H1((a[1]&b[0]), (a[0]&b[1]), temp, s[1]);
+     half_adder H2(temp, (a[1]&b[1]), s[2], s[3]);
      
      
 endmodule
